@@ -45,7 +45,7 @@ export default function Challenges() {
         </Typography>
       </CardContent>
       <CardActions>
-        <Link href="/passwordgenerator/passwordgenerator">
+        <Link href="/passwordgenerator">
           <Button size="small" sx={buttonStyle.Button}>
             Visit Challenge
           </Button>
