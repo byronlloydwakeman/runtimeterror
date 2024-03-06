@@ -1,3 +1,9 @@
 .navbar_container {
-    background-color: red;
+    padding-bottom: 50px;
+    background-color: #e6eaef;
+
+    .button_group {
+        display: flex;
+        gap: 20px;
+    }
 }
