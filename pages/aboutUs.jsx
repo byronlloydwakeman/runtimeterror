@@ -1,7 +1,7 @@
 import * as React from 'react';
 import Navbar from '../components/Navbar';
 import NavbarBottom from '../components/NavbarBottom';
-import styles from './aboutUs.module.css';
+import styles from './aboutUs.module.scss';
 
 export default function AboutUs() {
   return (

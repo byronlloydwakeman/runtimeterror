@@ -1,6 +1,6 @@
 import Navbar from '../components/Navbar';
 import NavbarBottom from '../components/NavbarBottom';
-import styles from './index.module.css';
+import styles from './index.module.scss';
 
 const Home = () => (
   <div className={styles.main_container}>

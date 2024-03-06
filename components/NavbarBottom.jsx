@@ -6,7 +6,7 @@ import Container from '@mui/material/Container';
 import Button from '@mui/material/Button';
 import AdbIcon from '@mui/icons-material/Adb';
 import Link from 'next/link';
-import styles from './navbarBottom.module.css';
+import styles from './navbarBottom.module.scss';
 import GitHubIcon from '@mui/icons-material/GitHub';
 
 function Navbar() {

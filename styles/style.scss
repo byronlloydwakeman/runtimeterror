@@ -1,0 +1,9 @@
+$forest-green: #045149;
+$soft-grey: #e6eaef;
+$error-message: #ff6961;
+
+@mixin mobile {
+    @media (max-width: 800px) {
+        @content;
+    }
+}

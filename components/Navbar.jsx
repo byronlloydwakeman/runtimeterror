@@ -6,7 +6,7 @@ import Container from '@mui/material/Container';
 import Button from '@mui/material/Button';
 import AdbIcon from '@mui/icons-material/Adb';
 import Link from 'next/link';
-import styles from './navbar.module.css';
+import styles from './navbar.module.scss';
 
 function Navbar() {
   const appBarStyle = {
