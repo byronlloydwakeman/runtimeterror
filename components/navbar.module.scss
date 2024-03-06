@@ -3,16 +3,22 @@
 .navbar_container {
     padding-bottom: 50px;
     background-color: $soft-grey;
-    width: 100vw;
 
     @include mobile {
         display: flex !important;
         justify-content: space-around !important;
     }
 
-    .title_with_icon {
+    .left_hand_navbar {
         display: flex;
+        gap: 30px;
+
+        .title_with_icon {
+            display: flex;
+            cursor: pointer;
+        }
     }
+
 
     .button_group {
         display: flex;
