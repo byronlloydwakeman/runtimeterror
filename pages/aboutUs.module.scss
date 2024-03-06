@@ -1,13 +1,19 @@
+@import "../styles/style.scss";
+
 .main_container {
-    background-color: #e6eaef;
+    background-color: $soft-grey;
     padding: 0 50px;
     height: 86vh;
     width: 100vw;
     margin: 0;
 
+    @include mobile {
+        height: 90vh;
+    }
+
     .page_title {
         margin: 0 0 50px 0;
-        color: #045149;
+        color: $forest-green;
         font-weight: bold;
     }
 }

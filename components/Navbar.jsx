@@ -6,7 +6,7 @@ import Container from '@mui/material/Container';
 import Button from '@mui/material/Button';
 import AdbIcon from '@mui/icons-material/Adb';
 import Link from 'next/link';
-import styles from './navbar.module.css';
+import styles from './navbar.module.scss';
 
 function Navbar() {
   const appBarStyle = {
@@ -33,34 +33,39 @@ function Navbar() {
     <div className={styles.navbar_container}>
       <AppBar position="static" sx={appBarStyle.AppBar}>
         <Container maxWidth="false">
-          <Toolbar disableGutters>
-            <Link href='/'>
-              <div className={styles.title_with_icon}>
-                <AdbIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} />
-                <Typography
-                  variant="h6"
-                  noWrap
-                  component="a"
-                  href="#app-bar-with-responsive-menu"
-                  sx={{
-                    mr: 2,
-                    display: { xs: 'none', md: 'flex' },
-                    fontFamily: 'monospace',
-                    fontWeight: 700,
-                    letterSpacing: '.3rem',
-                    color: 'inherit',
-                    textDecoration: 'none',
-                    textAlign: 'start',
-                  }}
-                >
-                  Runtimeterror
-                </Typography>
-              </div>
-            </Link>
-            <div className={styles.button_group}>
+          <Toolbar
+            disableGutters
+            sx={{ display: 'flex', justifyContent: 'space-between' }}
+          >
+            <div className={styles.left_hand_navbar}>
+              <Link href="/">
+                <div className={styles.title_with_icon}>
+                  <AdbIcon sx={{ mr: 1, marginTop: '2.5px' }} />
+                  <Typography
+                    variant="h6"
+                    noWrap
+                    component="a"
+                    href="#app-bar-with-responsive-menu"
+                    sx={{
+                      mr: 2,
+                      display: { xs: 'none', sm: 'flex' },
+                      fontFamily: 'monospace',
+                      fontWeight: 700,
+                      letterSpacing: '.3rem',
+                      color: 'inherit',
+                      textDecoration: 'none',
+                      textAlign: 'start',
+                    }}
+                  >
+                    Runtimeterror
+                  </Typography>
+                </div>
+              </Link>
               <Link href="/challenges">
                 <Button sx={buttonStyle.Button}>Challenges</Button>
               </Link>
+            </div>
+            <div className={styles.button_group}>
               <Link href="/aboutUs">
                 <Button sx={buttonStyle.Button}>About Us</Button>
               </Link>

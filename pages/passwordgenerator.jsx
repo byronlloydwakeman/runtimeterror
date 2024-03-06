@@ -8,7 +8,7 @@ import Checkbox from '@mui/material/Checkbox';
 import ContentCopyIcon from '@mui/icons-material/ContentCopy';
 import VisibilityOutlinedIcon from '@mui/icons-material/VisibilityOutlined';
 import VisibilityOffOutlinedIcon from '@mui/icons-material/VisibilityOffOutlined';
-import styles from './passwordgenerator.module.css';
+import styles from './passwordgenerator.module.scss';
 import Navbar from '../components/Navbar';
 import NavbarBottom from '../components/NavbarBottom';
 import { platform } from 'os';

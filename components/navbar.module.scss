@@ -1,0 +1,28 @@
+@import "../styles/style.scss";
+
+.navbar_container {
+    padding-bottom: 50px;
+    background-color: $soft-grey;
+
+    @include mobile {
+        display: flex !important;
+        justify-content: space-around !important;
+        padding-bottom: 25px;
+    }
+
+    .left_hand_navbar {
+        display: flex;
+        gap: 30px;
+
+        .title_with_icon {
+            display: flex;
+            cursor: pointer;
+        }
+    }
+
+
+    .button_group {
+        display: flex;
+        gap: 20px;
+    }
+}

@@ -7,7 +7,7 @@ import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import Navbar from '../components/Navbar';
 import NavbarBottom from '../components/NavbarBottom';
-import styles from './challenges.module.css';
+import styles from './challenges.module.scss';
 import Link from 'next/link';
 
 export default function Challenges() {
