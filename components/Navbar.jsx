@@ -33,9 +33,12 @@ function Navbar() {
     <div className={styles.navbar_container}>
       <AppBar position="static" sx={appBarStyle.AppBar}>
         <Container maxWidth="false">
-          <Toolbar disableGutters sx={{ display: 'flex', justifyContent: 'space-between' }}>
+          <Toolbar
+            disableGutters
+            sx={{ display: 'flex', justifyContent: 'space-between' }}
+          >
             <div className={styles.left_hand_navbar}>
-              <Link href='/'>
+              <Link href="/">
                 <div className={styles.title_with_icon}>
                   <AdbIcon sx={{ mr: 1, marginTop: '2.5px' }} />
                   <Typography
@@ -63,7 +66,6 @@ function Navbar() {
               </Link>
             </div>
             <div className={styles.button_group}>
-
               <Link href="/aboutUs">
                 <Button sx={buttonStyle.Button}>About Us</Button>
               </Link>
