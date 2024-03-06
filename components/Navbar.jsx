@@ -37,7 +37,7 @@ function Navbar() {
             <div className={styles.left_hand_navbar}>
               <Link href='/'>
                 <div className={styles.title_with_icon}>
-                  <AdbIcon sx={{ mr: 1 }} />
+                  <AdbIcon sx={{ mr: 1, marginTop: '2.5px' }} />
                   <Typography
                     variant="h6"
                     noWrap
