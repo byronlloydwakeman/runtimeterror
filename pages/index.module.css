@@ -3,4 +3,14 @@
     height: 95.5vh;
     width: 100vw;
     margin: 0;
+
+    .sub_container {
+        padding-left: 50px;
+
+        .page_title {
+            margin: 0 0 50px 0;
+            color: #045149;
+            font-weight: bold;
+        }
+    }
 }

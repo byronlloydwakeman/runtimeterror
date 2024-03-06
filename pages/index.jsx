@@ -5,7 +5,9 @@ import styles from './index.module.css';
 const Home = () => (
   <div className={styles.main_container}>
     <Navbar />
-    <h1>What Can I Deploy to Static Apps?</h1>
+    <div className={styles.sub_container}>
+      <h1 className={styles.page_title}>Homepage</h1>
+    </div>
     <NavbarBottom />
   </div>
 );

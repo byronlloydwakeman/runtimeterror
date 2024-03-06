@@ -34,25 +34,29 @@ function Navbar() {
       <AppBar position="static" sx={appBarStyle.AppBar}>
         <Container maxWidth="false">
           <Toolbar disableGutters>
-            <AdbIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} />
-            <Typography
-              variant="h6"
-              noWrap
-              component="a"
-              href="#app-bar-with-responsive-menu"
-              sx={{
-                mr: 2,
-                display: { xs: 'none', md: 'flex' },
-                fontFamily: 'monospace',
-                fontWeight: 700,
-                letterSpacing: '.3rem',
-                color: 'inherit',
-                textDecoration: 'none',
-                textAlign: 'start',
-              }}
-            >
-              Runtimeterror
-            </Typography>
+            <Link href='/'>
+              <div className={styles.title_with_icon}>
+                <AdbIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} />
+                <Typography
+                  variant="h6"
+                  noWrap
+                  component="a"
+                  href="#app-bar-with-responsive-menu"
+                  sx={{
+                    mr: 2,
+                    display: { xs: 'none', md: 'flex' },
+                    fontFamily: 'monospace',
+                    fontWeight: 700,
+                    letterSpacing: '.3rem',
+                    color: 'inherit',
+                    textDecoration: 'none',
+                    textAlign: 'start',
+                  }}
+                >
+                  Runtimeterror
+                </Typography>
+              </div>
+            </Link>
             <div className={styles.button_group}>
               <Link href="/challenges">
                 <Button sx={buttonStyle.Button}>Challenges</Button>

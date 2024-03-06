@@ -2,6 +2,10 @@
     padding-bottom: 50px;
     background-color: #e6eaef;
 
+    .title_with_icon {
+        display: flex;
+    }
+
     .button_group {
         display: flex;
         gap: 20px;
