@@ -7,6 +7,10 @@
     width: 100vw;
     margin: 0;
 
+    @include mobile {
+        height: 90vh;
+    }
+
     .page_title {
         margin: 0 0 50px 0;
         color: $forest-green;
