@@ -2,6 +2,15 @@
 
 [Azure Static Web Apps](https://docs.microsoft.com/azure/static-web-apps/overview) allows you to easily build [Next.js](https://nextjs.org/) apps in minutes. Use this repo with the [Azure Static Web Apps Next.js tutorial](https://learn.microsoft.com/azure/static-web-apps/deploy-nextjs-static-export?tabs=github-actions) to build and customize a new static site.
 
+## Naming Conventions
+
+* React Pages - Camel Case
+* React Components - Pascal
+* CSS Files - 'ReactFile'.module.css
+* CSS Classes - Snake Case
+* Variables - Camel Case
+* JSX Functions - Pascal
+* JavaScript Functions - Camel Case
 
 
 ## Running locally

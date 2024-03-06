@@ -3,7 +3,7 @@ import Navbar from '../components/Navbar';
 import NavbarBottom from '../components/NavbarBottom';
 import styles from './aboutUs.module.css';
 
-export default function Challenges() {
+export default function AboutUs() {
   return (
     <div>
       <Navbar />
