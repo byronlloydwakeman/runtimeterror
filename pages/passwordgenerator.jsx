@@ -9,8 +9,8 @@ import ContentCopyIcon from '@mui/icons-material/ContentCopy';
 import VisibilityOutlinedIcon from '@mui/icons-material/VisibilityOutlined';
 import VisibilityOffOutlinedIcon from '@mui/icons-material/VisibilityOffOutlined';
 import styles from './passwordgenerator.module.css';
-import Navbar from '../../components/Navbar';
-import NavbarBottom from '../../components/NavbarBottom';
+import Navbar from '../components/Navbar';
+import NavbarBottom from '../components/NavbarBottom';
 import { platform } from 'os';
 import Snackbar from '@mui/material/Snackbar';
 
