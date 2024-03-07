@@ -23,8 +23,8 @@ This weeks challenge can be found at - https://proud-moss-06f797a03.4.azurestati
 
 * React Pages - Camel Case
 * React Components - Pascal
-* CSS Files - 'ReactFile'.module.css
-* CSS Classes - Snake Case
+* SCSS Files - 'ReactFile'.module.scss
+* SCSS Classes - Snake Case
 * Variables - Camel Case
 * JSX Functions - Pascal
 * JavaScript Functions - Camel Case
