@@ -1,0 +1,18 @@
+{
+  "challenges": [
+    {
+      "week": "Week 1",
+      "title": "Password Generator",
+      "tags": ["UI", "Validation", "Testing", "Hosting"],
+      "description": "A user interface where a user can easily generate a password string.",
+      "link": "/passwordgenerator"
+    },
+    {
+      "week": "Week 1",
+      "title": "Password Generator",
+      "tags": ["UI", "Validation", "Testing", "Hosting"],
+      "description": "A user interface where a user can easily generate a password string.",
+      "link": "/passwordgenerator"
+    }
+  ]
+}
