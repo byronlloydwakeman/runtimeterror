@@ -68,7 +68,16 @@ export default function Challenges() {
         <div className={styles.challenge_container}>
           {challenges.map(function (challenge) {
             return (
-              <Box sx={{ width: 300 }}>
+              <Box
+                sx={{
+                  width: 300,
+                  maxWidth: 300,
+                  minWidth: 300,
+                  maxHeight: 300,
+                  height: 300,
+                  minHeight: 300,
+                }}
+              >
                 <Card
                   variant="outlined"
                   sx={{ padding: '15px', borderRadius: '20px' }}
