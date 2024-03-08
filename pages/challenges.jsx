@@ -43,8 +43,8 @@ export default function Challenges() {
             {challenge.title}
           </Typography>
           <Typography sx={{ mb: 1.5, fontSize: 12 }} color="text.secondary">
-            {challenge.tags.map(function (tag, i) {
-              return <span>{tag} • </span>;
+            {challenge.tags.map(function (tag, index) {
+              return <span key={index}>{tag} • </span>;
             })}
           </Typography>
           <Typography variant="body2">{challenge.description}</Typography>
@@ -66,7 +66,7 @@ export default function Challenges() {
       <div className={styles.main_container}>
         <h1 className={styles.page_title}>Challenges</h1>
         <div className={styles.challenge_container}>
-          {challenges.map(function (challenge) {
+          {challenges.map(function (challenge, index) {
             return (
               <Box
                 sx={{
@@ -76,6 +76,7 @@ export default function Challenges() {
                   maxHeight: 300,
                   height: 300,
                   minHeight: 300,
+                  key: index,
                 }}
               >
                 <Card
