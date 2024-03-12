@@ -26,6 +26,7 @@
 
     @include mobile {
       flex-direction: column;
+      gap: 0px;
     }
   }
 }
