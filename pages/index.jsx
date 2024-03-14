@@ -8,25 +8,19 @@ import { AnimatePresence } from 'framer-motion';
 export default function Home() {
   const [isLoading, setIsLoading] = useState(true);
 
-  useEffect( () => {
-    (
-      async () => {
-          setTimeout( () => {
-            setIsLoading(false);
-            document.body.style.cursor = 'default'
-            window.scrollTo(0,0);
-          }, 2500)
-      }
-    )()
-  }, [])
+  useEffect(() => {
+    (async () => {
+      setTimeout(() => {
+        setIsLoading(false);
+        document.body.style.cursor = 'default';
+        window.scrollTo(0, 0);
+      }, 2500);
+    })();
+  }, []);
 
   return (
     <div className={styles.main_container}>
-      <AnimatePresence>
-      {
-        isLoading && <Preloader/>
-      }
-      </AnimatePresence>
+      <AnimatePresence>{isLoading && <Preloader />}</AnimatePresence>
 
       <Navbar />
       <div className={styles.sub_container}>
@@ -34,6 +28,5 @@ export default function Home() {
       </div>
       <NavbarBottom />
     </div>
-  )
+  );
 }
-
