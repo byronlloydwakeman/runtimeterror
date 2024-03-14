@@ -1,3 +1,5 @@
+@import "../../styles/style.scss";
+
 .introduction{
     height: 100vh;
     width: 100vw;
@@ -6,14 +8,14 @@
     justify-content: center;
     position: fixed;
     z-index: 99;
-    background-color: #141516;
+    background-color: $forest-green;
     svg{
         position: absolute;
         top: 0;
         width: 100%;
         height: calc(100% + 300px);
         path{
-            fill: #141516;
+            fill: $forest-green;
         }
     }
     p{
