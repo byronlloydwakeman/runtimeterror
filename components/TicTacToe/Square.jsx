@@ -12,15 +12,6 @@ export const Square = ({index, player1, playerHook, squares}) => {
     }
 
     return (
-        // <motion.div
-        //     initial={{ scale: 0 }}
-        //     animate={{ scale: 1 }}
-        //     className={styles.square}
-        //     onClick={clicked}>
-        //         <motion.span>
-        //             {squares[index]}
-        //         </motion.span>
-        // </motion.div>
         <motion.button
             onClick={clicked}
             whileHover={{ scale: 1.1 }}
