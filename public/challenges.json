@@ -9,10 +9,10 @@
     },
     {
       "week": "Week 2",
-      "title": "Example title",
-      "tags": ["Algorithms", "Testing", "Big-O"],
-      "description": "A demonstration of various algorithms used in software.",
-      "link": "/passwordgenerator"
+      "title": "Tic tac Toe",
+      "tags": ["Algorithms", "Game design"],
+      "description": "A tic tac toe game which includes both CPU and versus mode.",
+      "link": "/tictactoe"
     }
   ]
 }
