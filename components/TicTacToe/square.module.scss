@@ -1,0 +1,20 @@
+.square {
+    width: 100px;
+    height: 100px;
+
+    border: 3px solid white;
+    border-radius: 5px;
+
+    margin: 3px;
+
+    font-size: 48px;
+
+}
+
+.X{
+    filter: brightness(0) saturate(100%) invert(79%) sepia(45%) saturate(6765%) hue-rotate(360deg) brightness(103%) contrast(106%);
+}
+
+.O{
+    filter: brightness(0) saturate(100%) invert(40%) sepia(70%) saturate(7226%) hue-rotate(174deg) brightness(92%) contrast(98%);
+}

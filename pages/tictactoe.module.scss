@@ -1,0 +1,19 @@
+@import "../styles/style.scss";
+
+.container{
+    background-color: $soft-grey;
+    height: 94.75vh;
+    width: 100vw;
+    margin: 0;
+}
+
+.square_container{
+    display: grid;
+
+    max-width: fit-content;
+
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+
+    margin: auto;
+}
