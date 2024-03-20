@@ -20,6 +20,10 @@ export default function TicTacToe() {
       const secondIndex = winningArray[1][1];
       const thirdIndex = winningArray[1][2];
 
+      if (!squares.includes('')) {
+        setWinner('Draw');
+      }
+
       if (
         squares[firstIndex] == winningArray[0][firstIndex] &&
         squares[secondIndex] == winningArray[0][secondIndex] &&
@@ -27,6 +31,9 @@ export default function TicTacToe() {
       ) {
         setWinner('crosses');
         setCrossWinCount((crossWinCount) => crossWinCount + 1);
+        setTimeout(() => {
+          resetBoard();
+        }, 1000);
       }
     });
 
@@ -42,16 +49,42 @@ export default function TicTacToe() {
       ) {
         setWinner('naughts');
         setNaughtsWinCount((naughtsWinCount) => naughtsWinCount + 1);
+        setTimeout(() => {
+          resetBoard();
+        }, 500);
+      }
+    });
+  }, [player1, squares, winningCrossArrays, winningNaughtsArrays]);
+
+  useEffect(() => {
+    let crossCounter = 0;
+    let naughtsCounter = 0;
+    let freeIndexes = [];
+
+    squares?.map((element, index) => {
+      if (element == '❌') {
+        crossCounter = crossCounter + 1;
+      } else if (element == '⭕') {
+        naughtsCounter = naughtsCounter + 1;
+      } else {
+        freeIndexes.push(index);
       }
     });
 
-    if (!squares.includes('')) {
-      setWinner('Draw');
-    }
-  }, [player1, squares, winningCrossArrays, winningNaughtsArrays]);
+    let randomFreeIndex =
+      freeIndexes[Math.floor(Math.random() * freeIndexes.length)];
+
+    setTimeout(() => {
+      if (player1) {
+        squares[randomFreeIndex] = '❌';
+        setPlayer1(!player1);
+      }
+    }, 500);
+  }, [player1, squares]);
 
   const resetBoard = () => {
     setSquares(['', '', '', '', '', '', '', '', '']);
+    setWinner('Undecided');
   };
 
   return (
