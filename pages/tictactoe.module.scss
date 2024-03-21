@@ -1,13 +1,21 @@
-@import "../styles/style.scss";
+@import '../styles/style.scss';
 
-.container{
-    background-color: $soft-grey;
-    height: 89.5vh;
-    width: 100vw;
-    margin: 0;
-}
+.container {
+  background-color: $soft-grey;
+  height: 89.5vh;
+  width: 100vw;
+  margin: auto;
 
-.square_container{
+  .score_board {
+    font-size: 36px;
+    justify-content: center;
+    display: flex;
+    flex-direction: row;
+    gap: 100px;
+    padding-bottom: 50px;
+  }
+
+  .square_container {
     display: grid;
 
     max-width: fit-content;
@@ -16,4 +24,17 @@
     grid-template-rows: repeat(3, 1fr);
 
     margin: auto;
+  }
+
+  .match_result {
+    text-align: center;
+    color: $forest-green;
+    margin: 25px;
+  }
+
+  .button_group {
+    justify-content: center;
+    display: flex;
+    gap: 50px;
+  }
 }

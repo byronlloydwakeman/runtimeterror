@@ -4,15 +4,32 @@ import styles from './tictactoe.module.scss';
 import Navbar from '../components/Navbar.jsx';
 import NavbarBottom from '../components/NavbarBottom';
 import winningArrays from '../public/winningSquares.json';
+import Button from '@mui/material/Button';
 
 export default function TicTacToe() {
   const [squares, setSquares] = useState(['', '', '', '', '', '', '', '', '']);
   const [player1, setPlayer1] = useState(true);
   const [winner, setWinner] = useState('Undecided');
+  const [cpuEnabled, setCpuEnabled] = useState(false);
   const [crossWinCount, setCrossWinCount] = useState(0);
   const [naughtsWinCount, setNaughtsWinCount] = useState(0);
   const winningCrossArrays = winningArrays.winningCrossArrays;
   const winningNaughtsArrays = winningArrays.winningNaughtsArrays;
+
+  const buttonStyle = {
+    Button: {
+      color: '#045149',
+      border: '1px solid #045149',
+      backgroundColor: 'white',
+      padding: '5px 10px',
+      '&:hover': {
+        backgroundColor: '#045149 !important',
+        boxShadow: 'none !important',
+        borderColor: 'white',
+        color: 'white',
+      },
+    },
+  };
 
   useEffect(() => {
     winningCrossArrays?.map((winningArray) => {
@@ -21,7 +38,7 @@ export default function TicTacToe() {
       const thirdIndex = winningArray[1][2];
 
       if (!squares.includes('')) {
-        setWinner('Draw');
+        setWinner('Draw!');
       }
 
       if (
@@ -29,7 +46,7 @@ export default function TicTacToe() {
         squares[secondIndex] == winningArray[0][secondIndex] &&
         squares[thirdIndex] == winningArray[0][thirdIndex]
       ) {
-        setWinner('crosses');
+        setWinner('Crosses wins!');
         setCrossWinCount((crossWinCount) => crossWinCount + 1);
         setTimeout(() => {
           resetBoard();
@@ -47,11 +64,11 @@ export default function TicTacToe() {
         squares[secondIndex] == winningArray[0][secondIndex] &&
         squares[thirdIndex] == winningArray[0][thirdIndex]
       ) {
-        setWinner('naughts');
+        setWinner('Naughts wins!');
         setNaughtsWinCount((naughtsWinCount) => naughtsWinCount + 1);
         setTimeout(() => {
           resetBoard();
-        }, 500);
+        }, 740);
       }
     });
   }, [player1, squares, winningCrossArrays, winningNaughtsArrays]);
@@ -74,12 +91,14 @@ export default function TicTacToe() {
     let randomFreeIndex =
       freeIndexes[Math.floor(Math.random() * freeIndexes.length)];
 
-    setTimeout(() => {
-      if (player1) {
-        squares[randomFreeIndex] = '❌';
-        setPlayer1(!player1);
-      }
-    }, 500);
+    if (cpuEnabled) {
+      setTimeout(() => {
+        if (player1) {
+          squares[randomFreeIndex] = '❌';
+          setPlayer1(!player1);
+        }
+      }, 750);
+    }
   }, [player1, squares]);
 
   const resetBoard = () => {
@@ -87,10 +106,17 @@ export default function TicTacToe() {
     setWinner('Undecided');
   };
 
+  const handleCpu = () => {
+    setCpuEnabled(!cpuEnabled);
+  };
+
   return (
     <div>
       <Navbar />
       <div className={styles.container}>
+        <div className={styles.score_board}>
+          <div>❌ - {crossWinCount}</div>|<div>⭕ - {naughtsWinCount}</div>
+        </div>
         <div className={styles.square_container}>
           {Array.from(squares).map((el, ind) => (
             <Square
@@ -102,10 +128,21 @@ export default function TicTacToe() {
             />
           ))}
         </div>
-        <h1>Winner is: {winner}</h1>
-        <button onClick={resetBoard}>Reset Board</button>
-        <div>Cross win count: {crossWinCount}</div>
-        <div>Naughts win count: {naughtsWinCount}</div>
+        <h1 className={styles.match_result}>Game result: {winner}</h1>
+        <div className={styles.button_group}>
+          <Button size="small" sx={buttonStyle.Button} onClick={resetBoard}>
+            Reset Board
+          </Button>
+          {!cpuEnabled ? (
+            <Button size="small" sx={buttonStyle.Button} onClick={handleCpu}>
+              Enable CPU
+            </Button>
+          ) : (
+            <Button size="small" sx={buttonStyle.Button} onClick={handleCpu}>
+              Disable CPU
+            </Button>
+          )}
+        </div>
       </div>
       <NavbarBottom />
     </div>
