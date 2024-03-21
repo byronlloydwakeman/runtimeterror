@@ -9,7 +9,7 @@ import Button from '@mui/material/Button';
 export default function TicTacToe() {
   const [squares, setSquares] = useState(['', '', '', '', '', '', '', '', '']);
   const [player1, setPlayer1] = useState(true);
-  const [winner, setWinner] = useState('Undecided');
+  const [winner, setWinner] = useState('Match in progress...');
   const [cpuEnabled, setCpuEnabled] = useState(false);
   const [crossWinCount, setCrossWinCount] = useState(0);
   const [naughtsWinCount, setNaughtsWinCount] = useState(0);
@@ -106,7 +106,7 @@ export default function TicTacToe() {
 
   const resetBoard = () => {
     setSquares(['', '', '', '', '', '', '', '', '']);
-    setWinner('Undecided');
+    setWinner('Match in progress...');
   };
 
   const handleCpu = () => {
@@ -137,7 +137,7 @@ export default function TicTacToe() {
             />
           ))}
         </div>
-        <h1 className={styles.match_result}>Game result: {winner}</h1>
+        <h1 className={styles.match_result}>{winner}</h1>
         <div className={styles.button_group}>
           <Button size="small" sx={buttonStyle.Button} onClick={resetBoard}>
             Reset Board
