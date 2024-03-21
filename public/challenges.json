@@ -9,9 +9,9 @@
     },
     {
       "week": "Week 2",
-      "title": "Tic tac Toe",
+      "title": "Tic Tac Toe",
       "tags": ["Algorithms", "Game design"],
-      "description": "A tic tac toe game which includes both CPU and versus mode.",
+      "description": "A Tic Tac Toe game which includes both CPU and versus modes.",
       "link": "/tictactoe"
     }
   ]

@@ -39,6 +39,9 @@ export default function TicTacToe() {
 
       if (!squares.includes('')) {
         setWinner('Draw!');
+        setTimeout(() => {
+          resetBoard();
+        }, 1000);
       }
 
       if (
@@ -99,7 +102,7 @@ export default function TicTacToe() {
         }
       }, 750);
     }
-  }, [player1, squares]);
+  }, [player1, squares, cpuEnabled]);
 
   const resetBoard = () => {
     setSquares(['', '', '', '', '', '', '', '', '']);
@@ -115,7 +118,13 @@ export default function TicTacToe() {
       <Navbar />
       <div className={styles.container}>
         <div className={styles.score_board}>
-          <div>❌ - {crossWinCount}</div>|<div>⭕ - {naughtsWinCount}</div>
+          <div>
+            <span className={styles.O}>⭕</span> - {naughtsWinCount}
+          </div>
+          |
+          <div>
+            <span className={styles.X}>❌</span> - {crossWinCount}
+          </div>
         </div>
         <div className={styles.square_container}>
           {Array.from(squares).map((el, ind) => (
