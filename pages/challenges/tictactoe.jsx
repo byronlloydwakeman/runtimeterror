@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react';
-import { Square } from '../components/TicTacToe/Square.jsx';
+import { Square } from '../../components/TicTacToe/Square.jsx';
 import styles from './tictactoe.module.scss';
-import Navbar from '../components/Navbar.jsx';
-import NavbarBottom from '../components/NavbarBottom';
-import winningArrays from '../public/winningSquares.json';
+import Navbar from '../../components/Navbars/Navbar.jsx';
+import NavbarBottom from '../../components/Navbars/NavbarBottom.jsx';
+import winningArrays from '../../public/winningSquares.json';
 import Button from '@mui/material/Button';
 
 export default function TicTacToe() {
