@@ -107,6 +107,7 @@ export default function TicTacToe() {
   const resetBoard = () => {
     setSquares(['', '', '', '', '', '', '', '', '']);
     setWinner('Match in progress...');
+    setPlayer1(false);
   };
 
   const handleCpu = () => {
