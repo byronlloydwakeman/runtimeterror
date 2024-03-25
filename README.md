@@ -19,6 +19,11 @@ This was build using the 'generator-password-browser' npm package which is able 
 <br/>
 This weeks challenge can be found at - https://proud-moss-06f797a03.4.azurestaticapps.net/passwordgenerator.
 
+### Week 2 - TicTacToe
+
+https://www.geeksforgeeks.org/finding-optimal-move-in-tic-tac-toe-using-minimax-algorithm-in-game-theory/ <br/>
+https://www.geeksforgeeks.org/introduction-to-evaluation-function-of-minimax-algorithm-in-game-theory/
+
 ## Naming Conventions
 
 * React Pages - Camel Case
