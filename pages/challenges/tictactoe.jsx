@@ -5,6 +5,7 @@ import Navbar from '../../components/Navbars/Navbar.jsx';
 import NavbarBottom from '../../components/Navbars/NavbarBottom.jsx';
 import winningArrays from '../../public/winningSquares.json';
 import Button from '@mui/material/Button';
+import { CPU } from '../../components/TicTacToe/CPU.jsx';
 
 export default function TicTacToe() {
   const [squares, setSquares] = useState(['', '', '', '', '', '', '', '', '']);
@@ -77,30 +78,14 @@ export default function TicTacToe() {
   }, [player1, squares, winningCrossArrays, winningNaughtsArrays]);
 
   useEffect(() => {
-    let crossCounter = 0;
-    let naughtsCounter = 0;
-    let freeIndexes = [];
-
-    squares?.map((element, index) => {
-      if (element == '❌') {
-        crossCounter = crossCounter + 1;
-      } else if (element == '⭕') {
-        naughtsCounter = naughtsCounter + 1;
-      } else {
-        freeIndexes.push(index);
-      }
-    });
-
-    let randomFreeIndex =
-      freeIndexes[Math.floor(Math.random() * freeIndexes.length)];
-
     if (cpuEnabled) {
-      setTimeout(() => {
-        if (player1) {
-          squares[randomFreeIndex] = '❌';
-          setPlayer1(!player1);
-        }
-      }, 750);
+      if (!player1) 
+      {
+        let squareIndex = CPU(squares);
+        squares[squareIndex] = "⭕";
+        setPlayer1(true);
+      }
+
     }
   }, [player1, squares, cpuEnabled]);
 
