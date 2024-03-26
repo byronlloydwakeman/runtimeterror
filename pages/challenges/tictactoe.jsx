@@ -78,30 +78,14 @@ export default function TicTacToe() {
   }, [player1, squares, winningCrossArrays, winningNaughtsArrays]);
 
   useEffect(() => {
-    let crossCounter = 0;
-    let naughtsCounter = 0;
-    let freeIndexes = [];
-
-    squares?.map((element, index) => {
-      if (element == '❌') {
-        crossCounter = crossCounter + 1;
-      } else if (element == '⭕') {
-        naughtsCounter = naughtsCounter + 1;
-      } else {
-        freeIndexes.push(index);
-      }
-    });
-
-    let randomFreeIndex =
-      freeIndexes[Math.floor(Math.random() * freeIndexes.length)];
-
     if (cpuEnabled) {
       setTimeout(() => {
-        if (player1) {
-          squares[randomFreeIndex] = '❌';
-          setPlayer1(!player1);
+        if (!player1) {
+          let squareIndex = CPU(squares);
+          squares[squareIndex] = '⭕';
+          setPlayer1(true);
         }
-      }, 750);
+      }, 700);
     }
   }, [player1, squares, cpuEnabled]);
 
