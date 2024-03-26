@@ -5,6 +5,7 @@ import Navbar from '../../components/Navbars/Navbar.jsx';
 import NavbarBottom from '../../components/Navbars/NavbarBottom.jsx';
 import winningArrays from '../../public/winningSquares.json';
 import Button from '@mui/material/Button';
+import { CPU } from '../../components/TicTacToe/CPU.jsx';
 
 export default function TicTacToe() {
   const [squares, setSquares] = useState(['', '', '', '', '', '', '', '', '']);
