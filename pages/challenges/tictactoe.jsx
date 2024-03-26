@@ -32,7 +32,6 @@ export default function TicTacToe() {
     },
   };
 
-  // Calculating match result
   useEffect(() => {
     winningCrossArrays?.map((winningArray) => {
       const firstIndex = winningArray[1][0];
@@ -78,11 +77,17 @@ export default function TicTacToe() {
     });
   }, [player1, squares, winningCrossArrays, winningNaughtsArrays]);
 
-  // CPU Mode logic
   useEffect(() => {
+    let crossCounter = 0;
+    let naughtsCounter = 0;
     let freeIndexes = [];
+
     squares?.map((element, index) => {
-      if (element != '❌' && element != '⭕') {
+      if (element == '❌') {
+        crossCounter = crossCounter + 1;
+      } else if (element == '⭕') {
+        naughtsCounter = naughtsCounter + 1;
+      } else {
         freeIndexes.push(index);
       }
     });
@@ -90,13 +95,15 @@ export default function TicTacToe() {
     let randomFreeIndex =
       freeIndexes[Math.floor(Math.random() * freeIndexes.length)];
 
-    if (player1) {
+    if (cpuEnabled) {
       setTimeout(() => {
-        squares[randomFreeIndex] = '❌';
-        setPlayer1(!player1);
+        if (player1) {
+          squares[randomFreeIndex] = '❌';
+          setPlayer1(!player1);
+        }
       }, 750);
     }
-  }, [player1]);
+  }, [player1, squares, cpuEnabled]);
 
   const resetBoard = () => {
     setSquares(['', '', '', '', '', '', '', '', '']);
