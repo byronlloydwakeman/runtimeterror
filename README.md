@@ -17,12 +17,13 @@ The application is a NextJS application built with the following template - http
 
 This was build using the 'generator-password-browser' npm package which is able to generator passwords based on parameters such as length, numbers, uppercase etc. The 'generator-password-browser' package can be found here - https://github.com/oliver-la/generate-password-browser. <br/>
 <br/>
-This weeks challenge can be found at - https://proud-moss-06f797a03.4.azurestaticapps.net/passwordgenerator.
+This weeks challenge can be found at - https://proud-moss-06f797a03.4.azurestaticapps.net/challenges/passwordgenerator.
 
 ### Week 2 - TicTacToe
 
 https://www.geeksforgeeks.org/finding-optimal-move-in-tic-tac-toe-using-minimax-algorithm-in-game-theory/ <br/>
-https://www.geeksforgeeks.org/introduction-to-evaluation-function-of-minimax-algorithm-in-game-theory/
+https://www.geeksforgeeks.org/introduction-to-evaluation-function-of-minimax-algorithm-in-game-theory/ <br/>
+This weeks challenge can be found at - https://proud-moss-06f797a03.4.azurestaticapps.net/challenges/tictactoe
 
 ## Naming Conventions
 
