@@ -150,7 +150,8 @@ export default class CPUMark2
             // If the player went for the center
             else if(this.playerMove == 2)
             {
-                this.playerMove = 3;
+                // So it now reaches the else statement.
+                this.playerMove = -1;
 
                 const player1Stopper = this.checkTwoInRowForCrosses(squares);
                 if(player1Stopper == -1)
