@@ -93,7 +93,8 @@ export default function TicTacToe() {
 
   const resetBoard = () => {
     // CPU is in a bizaare state so this re-freshes everything.
-    window.location.reload();
+    setSquares(['', '', '', '', '', '', '', '', '']);
+    setWinner('Match in progress...');
   };
 
   const handleCpu = () => {
