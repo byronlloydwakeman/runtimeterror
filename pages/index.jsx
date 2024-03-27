@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
-import Navbar from '../components/Navbar';
-import NavbarBottom from '../components/NavbarBottom';
+import Navbar from '../components/Navbars/Navbar';
+import NavbarBottom from '../components/Navbars/NavbarBottom';
 import styles from './index.module.scss';
 import Preloader from '../components/Preloader/preloader';
 import { AnimatePresence } from 'framer-motion';

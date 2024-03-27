@@ -5,14 +5,14 @@
       "title": "Password Generator",
       "tags": ["UI", "Validation", "Testing", "Hosting"],
       "description": "A user interface where a user can easily generate a password string.",
-      "link": "/passwordgenerator"
+      "link": "/challenges/passwordgenerator"
     },
     {
       "week": "Week 2",
-      "title": "Example title",
-      "tags": ["Algorithms", "Testing", "Big-O"],
-      "description": "A demonstration of various algorithms used in software.",
-      "link": "/passwordgenerator"
+      "title": "Tic Tac Toe",
+      "tags": ["Algorithms", "Game design"],
+      "description": "A Tic Tac Toe game which includes both CPU and versus modes.",
+      "link": "/challenges/tictactoe"
     }
   ]
 }

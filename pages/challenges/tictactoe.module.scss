@@ -1,0 +1,50 @@
+@import '../../styles/style.scss';
+
+.container {
+  background-color: $soft-grey;
+  height: 89.5vh;
+  width: 100vw;
+  margin: auto;
+
+  .score_board {
+    font-size: 36px;
+    justify-content: center;
+    display: flex;
+    flex-direction: row;
+    gap: 100px;
+    padding-bottom: 50px;
+
+    .X {
+      filter: brightness(0) saturate(100%) invert(79%) sepia(45%)
+        saturate(6765%) hue-rotate(360deg) brightness(103%) contrast(106%);
+    }
+
+    .O {
+      filter: brightness(0) saturate(100%) invert(40%) sepia(70%)
+        saturate(7226%) hue-rotate(174deg) brightness(92%) contrast(98%);
+    }
+  }
+
+  .square_container {
+    display: grid;
+
+    max-width: fit-content;
+
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+
+    margin: auto;
+  }
+
+  .match_result {
+    text-align: center;
+    color: $forest-green;
+    margin: 25px;
+  }
+
+  .button_group {
+    justify-content: center;
+    display: flex;
+    gap: 50px;
+  }
+}
