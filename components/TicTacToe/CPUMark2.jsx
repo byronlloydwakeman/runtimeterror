@@ -46,6 +46,7 @@ export default class CPUMark2
 
     //Check if crosses is about to win
     static checkTwoInRowForCrosses(squares) {
+        var toReturn = -1;
         const winningArrays = [
             [0, 1, 2], // Rows
             [3, 4, 5],
@@ -62,27 +63,16 @@ export default class CPUMark2
             const row = [squares[a], squares[b], squares[c]];
             const countCrosses = row.filter(el => el === '❌').length;
             if (countCrosses === 2 && row.includes('')) {
-                const emptyIndex = row.findIndex(el => el === '');
-                if (emptyIndex !== -1) {
-                    if (i < 3) {
-                        return emptyIndex + (i * 3);
-                    } else if (i < 6) {
-                        return emptyIndex * 3 + (i - 3);
-                    } else if (i === 6) {
-                        if (emptyIndex === 0 && squares[4] === '') return 4;
-                        else if (emptyIndex === 1 && squares[0] === '') return 0;
-                        else if (emptyIndex === 1 && squares[8] === '') return 8;
-                        else if (emptyIndex === 2 && squares[4] === '') return 4;
-                    } else {
-                        if (emptyIndex === 0 && squares[4] === '') return 4;
-                        else if (emptyIndex === 0 && squares[2] === '') return 2;
-                        else if (emptyIndex === 1 && squares[4] === '') return 4;
-                        else if (emptyIndex === 2 && squares[4] === '') return 4;
+                [a, b, c].forEach((el) => {
+                    if(squares[el] == "")
+                    {
+                        toReturn = el;
+                        return;
                     }
-                }
+                })
             }
         }
-        return -1;
+        return toReturn;
     }
 
     static checkFreeEdges(squares) {
@@ -116,7 +106,6 @@ export default class CPUMark2
 
     static findBestMove(squares)
     {
-        console.log(this.playerFirstGo)
         if (this.playerFirstGo === true)
         {   
             this.playerFirstGo = false;
@@ -178,15 +167,12 @@ export default class CPUMark2
             else if(this.playerMove == 3)
             {
                 //Prioritise not losing over trying to win.
-                console.log("reached player 3");
 
                 // Check if the player is about to win
-                const player1Stopper = this.checkTwoInRowForCrosses(squares)
-                console.log(`player1Stopper ${player1Stopper}`);
+                const player1Stopper = this.checkTwoInRowForCrosses(squares);
                 if(player1Stopper == -1)
                 {
                     var cpuWinner = this.checkTwoInRowForNaughts(squares);
-                    console.log(`cpuWinner ${cpuWinner}`)
                     if(cpuWinner == -1) // No move to win :(
                     {
                         return this.findFreeSquare(squares);

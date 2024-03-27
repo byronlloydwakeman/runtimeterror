@@ -83,7 +83,6 @@ export default function TicTacToe() {
       setTimeout(() => {
         if (!player1) {
           const squareIndex = CPUMark2.findBestMove(squares);
-          console.log(squareIndex);
           // let squareIndex = CPU(squares);
           squares[squareIndex] = '⭕';
           setPlayer1(true);
@@ -93,9 +92,8 @@ export default function TicTacToe() {
   }, [player1, squares, cpuEnabled]);
 
   const resetBoard = () => {
-    setSquares(['', '', '', '', '', '', '', '', '']);
-    setWinner('Match in progress...');
-    setPlayer1(false);
+    // CPU is in a bizaare state so this re-freshes everything.
+    window.location.reload();
   };
 
   const handleCpu = () => {
