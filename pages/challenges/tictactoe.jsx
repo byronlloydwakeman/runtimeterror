@@ -83,6 +83,7 @@ export default function TicTacToe() {
       setTimeout(() => {
         if (!player1) {
           const squareIndex = CPUMark2.findBestMove(squares);
+          console.log(squareIndex);
           // let squareIndex = CPU(squares);
           squares[squareIndex] = '⭕';
           setPlayer1(true);

@@ -82,8 +82,7 @@ export default class CPUMark2
                 }
             }
         }
-    
-        return -1; 
+        return -1;
     }
 
     static checkFreeEdges(squares) {
@@ -105,6 +104,16 @@ export default class CPUMark2
         return -1; // If no free square is found
     }
 
+    static checkFreeCorner(squares) {
+        const corners = [0, 2, 6, 8]; // Indices of corners
+        for (let i = 0; i < corners.length; i++) {
+            if (squares[corners[i]] === '') {
+                return corners[i];
+            }
+        }
+        return -1; // No free corner
+    }
+
     static findBestMove(squares)
     {
         console.log(this.playerFirstGo)
@@ -117,46 +126,81 @@ export default class CPUMark2
                 this.playerMove = 1;
                 return 4;
             }
+            else if(squares[4] != "")
+            {
+                this.playerMove = 2;
+            }
 
             return this.findFreeSquare(squares);
         }
         else
         {
-            var cpuWinner = this.checkTwoInRowForNaughts(squares);
-            if(cpuWinner == -1) // No move to win :(
+            // If the player first went for a corner
+            if(this.playerMove == 1)
             {
+                var cpuWinner = this.checkTwoInRowForNaughts(squares);
                 // Check if the player is about to win
                 const player1Stopper = this.checkTwoInRowForCrosses(squares)
                 // pLyaer 1 isnt about to win
                 if(player1Stopper == -1)
                 {
-                    const freeEdges = this.checkFreeEdges(squares);
-                    // There are no free edges and player 1 isnt about to win, just pick a free square
-                    if (freeEdges == -1)
+                    
+                    if(cpuWinner == -1) // No move to win :(
                     {
                         return this.findFreeSquare(squares);
-                    }
-                    else 
-                    {
-                        return freeEdges;
+                    } 
+                    else {
+                        return cpuWinner;
                     }
                 }
                 else
                 {
                     return player1Stopper;
                 }
-            } 
-            else {
-                return cpuWinner;
             }
+            // If the player went for the center
+            else if(this.playerMove == 2)
+            {
+                this.playerMove = 3;
 
+                const player1Stopper = this.checkTwoInRowForCrosses(squares);
+                if(player1Stopper == -1)
+                {                  
+                    //Player has gone in the center, so go in a corner
+                    return this.checkFreeCorner(squares);
+                }
+                else
+                {
+                    return player1Stopper;
+                }
+            }
+            //Try and not loses
+            else if(this.playerMove == 3)
+            {
+                //Prioritise not losing over trying to win.
+                console.log("reached player 3");
 
+                // Check if the player is about to win
+                const player1Stopper = this.checkTwoInRowForCrosses(squares)
+                console.log(`player1Stopper ${player1Stopper}`);
+                if(player1Stopper == -1)
+                {
+                    var cpuWinner = this.checkTwoInRowForNaughts(squares);
+                    console.log(`cpuWinner ${cpuWinner}`)
+                    if(cpuWinner == -1) // No move to win :(
+                    {
+                        return this.findFreeSquare(squares);
+                    } 
+                    else {
+                        return cpuWinner;
+                    }
+                }
+                else
+                {
+                    return player1Stopper;
+                }
+            }
         }
-
-
-    
-    
-
     }
 }
 
