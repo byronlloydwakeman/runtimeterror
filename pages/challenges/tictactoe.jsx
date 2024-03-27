@@ -5,7 +5,8 @@ import Navbar from '../../components/Navbars/Navbar.jsx';
 import NavbarBottom from '../../components/Navbars/NavbarBottom.jsx';
 import winningArrays from '../../public/winningSquares.json';
 import Button from '@mui/material/Button';
-import { CPU } from '../../components/TicTacToe/CPU.jsx';
+// import { CPU } from '../../components/TicTacToe/CPU.jsx';
+import CPUMark2 from '../../components/TicTacToe/CPUMark2.jsx';
 
 export default function TicTacToe() {
   const [squares, setSquares] = useState(['', '', '', '', '', '', '', '', '']);
@@ -81,7 +82,8 @@ export default function TicTacToe() {
     if (cpuEnabled) {
       setTimeout(() => {
         if (!player1) {
-          let squareIndex = CPU(squares);
+          const squareIndex = CPUMark2.findBestMove(squares);
+          // let squareIndex = CPU(squares);
           squares[squareIndex] = '⭕';
           setPlayer1(true);
         }

@@ -6,87 +6,131 @@ export const CPU = (squares) => {
 
 // If X wins its a score of + 10
 // If O wins its a score of - 10
-function heuristic(squares) {
-  const winningCrossArrays = winningArrays.winningCrossArrays;
-  const winningNaughtsArrays = winningArrays.winningNaughtsArrays;
+function heuristic(squares, depth) {
+    const winningArrays = [
+        [0, 1, 2], // Rows
+        [3, 4, 5],
+        [6, 7, 8],
+        [0, 3, 6], // Columns
+        [1, 4, 7],
+        [2, 5, 8],
+        [0, 4, 8], // Diagonals
+        [2, 4, 6]
+    ];
 
-  const crossArrays = winningCrossArrays[0][0];
-  const naughtsArrays = winningNaughtsArrays[0][0];
-
-  function arraysEqual(arr1, arr2) {
-    if (arr1.length !== arr2?.length) return false;
-    for (let i = 0; i < arr1.length; i++) {
-      if (arr1[i] !== arr2[i]) return false;
+    function findWinner (){
+        for (let i = 0; i < winningArrays.length; i++) {
+            const [a, b, c] = winningArrays[i];
+            if (squares[a] && squares[a] === squares[b] && squares[a] === squares[c]) {
+                return squares[a];
+            }
+        }
     }
-    return true;
-  }
 
-  for (let i = 1; i < winningCrossArrays.length; i++) {
-    const currentArray = crossArrays[i][0];
-    if (arraysEqual(squares, currentArray)) {
-      return 10;
+    const winner = findWinner();
+
+    if (winner === "⭕"){
+        console.log("naughts won that one");
+        return -100 + depth;
     }
-  }
-
-  for (let i = 1; i < winningNaughtsArrays.length; i++) {
-    const currentArray = naughtsArrays[i][0];
-    if (arraysEqual(squares, currentArray)) {
-      return -10;
+    else if(winner === "❌"){
+        console.log("crosses won that one");
+        return 100 - depth;
     }
-  }
 
-  return 0;
+    return 0;
+
+//   function arraysEqual(arr1, arr2) {
+//     if (arr1.length !== arr2?.length) return false;
+//     for (let i = 0; i < arr1.length; i++) {
+//       if (arr1[i] !== arr2[i]) return false;
+//     }
+//     return true;
+//   }
+
+//   console.log(`squares - ${squares}`);
+
+//   for (let i = 1; i < winningCrossArrays.length; i++) {
+//     const currentArray = winningCrossArrays[i][0];
+//     const equal = arraysEqual(squares, currentArray)
+//     console.log(`current cross array - ${currentArray}`);
+//     console.log(`equal? - ${equal}`)
+//     if (equal) {
+        // console.log("crosses won that one");
+        // return 10 - depth;
+//     }
+//   }
+
+//   for (let i = 1; i < winningNaughtsArrays.length; i++) {
+//     const currentArray = winningNaughtsArrays[i][0];
+//     const equal = arraysEqual(squares, currentArray);
+//     console.log(`current naughts array - ${currentArray}`);
+//     console.log(`equal? - ${equal}`);
+//     if (equal) {
+        // console.log("naughts won that one");
+        // return -10 + depth;
+//     }
+//   }
 }
 
 function minimax(squares, depth, isMax) {
-  let boardScore = heuristic(squares);
+    let boardScore = heuristic(squares, depth);
+    console.log(boardScore);
 
-  if (boardScore == 10 || boardScore == -10) return boardScore;
+    console.log(`depth -${depth}`);
 
-  // Is there are no empty squares left
-  if (!squares.includes('')) {
-    return 0;
+    if (boardScore === 100 || boardScore === -100) return boardScore;
+  
+    // Is there are no empty squares left
+    if (!squares.includes('')) {
+        return 0;
+    }
+  
+    if (isMax) {
+        var best = -100; // Initialize best to a very low value
+
+        for (let i = 0; i < squares.length; i++) {
+            if (squares[i] === '') 
+            {
+                const tempSquares = [...squares];
+                tempSquares[i] = '❌';
+
+                let minimaxVal = minimax(tempSquares, depth + 1, !isMax);
+                console.log(`current best - ${best}, minimaxVal - ${minimaxVal}`);
+                console.log(`max best - ${best}`)
+
+                best = Math.max(best, minimaxVal);
+            }
+        }
+  
+        return best;
+    } else {
+        var best = 100; // Initialize best to a very high value
+  
+        for (let i = 0; i < squares.length; i++) {
+            if (squares[i] === '') {
+                const tempSquares = [...squares];
+                tempSquares[i] = '⭕';
+
+                let minimaxVal = minimax(tempSquares, depth + 1, !isMax);
+                console.log(`current best - ${best}, minimaxVal - ${minimaxVal}`);
+                console.log(`min best - ${best}`)
+
+                best = Math.min(best, minimaxVal);
+
+                //Undo move
+                squares[i] = '';
+            }
+        }
+  
+        return best;
+    }
   }
-
-  if (isMax) {
-    let best = -1000;
-
-    squares.map((el, index) => {
-      if (el == '') {
-        squares[index] = '⭕';
-
-        let minimaxVal = minimax(squares, depth + 1, !isMax);
-
-        best = Math.min(best, minimaxVal);
-
-        //Undo move
-        squares[index] = '';
-      }
-    });
-
-    return best;
-  } else {
-    let best = 1000;
-
-    squares.map((el, index) => {
-      if (el == '') {
-        squares[index] = '❌';
-
-        let minimaxVal = minimax(squares, depth + 1, !isMax);
-
-        best = Math.max(best, minimaxVal);
-
-        //Undo move
-        squares[index] = '';
-      }
-    });
-
-    return best;
-  }
-}
+  
+  
 
 function findBestMove(squares) {
-  var bestMove = -1000;
+  var bestVal = -100;
   var bestIndex = 0;
 
   squares.map((el, index) => {
@@ -96,15 +140,14 @@ function findBestMove(squares) {
       squares[index] = '⭕';
       console.log(squares);
 
-      let curMove = minimax(squares, 0, false);
-
+      let moveVal = minimax(squares, 0, false);
+        
+      console.log(`moveVal - ${moveVal}`);
       squares[index] = '';
 
-      console.log(`curMove - ${curMove}`);
-
-      if (curMove > bestMove) {
+      if (moveVal > bestVal) {
         bestIndex = index;
-        bestMove = curMove;
+        bestVal = moveVal;
       }
     }
   }, []);
