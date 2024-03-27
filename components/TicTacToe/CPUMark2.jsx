@@ -4,6 +4,7 @@ export default class CPUMark2
     static playerFirstGo = true;
 
     static checkTwoInRowForNaughts(squares) {
+        var toReturn = -1;
         const winningArrays = [
             [0, 1, 2], // Rows
             [3, 4, 5],
@@ -20,28 +21,16 @@ export default class CPUMark2
             const row = [squares[a], squares[b], squares[c]];
             const countCrosses = row.filter(el => el === '⭕').length;
             if (countCrosses === 2 && row.includes('')) {
-                const emptyIndex = row.findIndex(el => el === '');
-                if (emptyIndex !== -1) {
-                    if (i < 3) {
-                        return emptyIndex + (i * 3);
-                    } else if (i < 6) {
-                        return emptyIndex * 3 + (i - 3);
-                    } else if (i === 6) {
-                        if (emptyIndex === 0 && squares[4] === '') return 4;
-                        else if (emptyIndex === 1 && squares[0] === '') return 0;
-                        else if (emptyIndex === 1 && squares[8] === '') return 8;
-                        else if (emptyIndex === 2 && squares[4] === '') return 4;
-                    } else {
-                        if (emptyIndex === 0 && squares[4] === '') return 4;
-                        else if (emptyIndex === 0 && squares[2] === '') return 2;
-                        else if (emptyIndex === 1 && squares[4] === '') return 4;
-                        else if (emptyIndex === 2 && squares[4] === '') return 4;
+                [a, b, c].forEach((el) => {
+                    if(squares[el] == "")
+                    {
+                        toReturn = el;
+                        return;
                     }
-                }
+                })
             }
         }
-    
-        return -1; 
+        return toReturn;
     }
 
     //Check if crosses is about to win
