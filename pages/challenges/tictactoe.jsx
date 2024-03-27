@@ -87,7 +87,7 @@ export default function TicTacToe() {
           squares[squareIndex] = '⭕';
           setPlayer1(true);
         }
-      }, 700);
+      }, 100);
     }
   }, [player1, squares, cpuEnabled]);
 
