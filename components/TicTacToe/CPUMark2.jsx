@@ -163,8 +163,7 @@ export default class CPUMark2
                     return player1Stopper;
                 }
             }
-            //Try and not loses
-            else if(this.playerMove == 3)
+            else
             {
                 //Prioritise not losing over trying to win.
 
